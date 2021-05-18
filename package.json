@@ -1,0 +1,19 @@
+{
+  "name": "baseline",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "author": "Jon Webb",
+  "license": "MIT",
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon",
+    "build": "rimraf dist && tsc",
+    "start": "NODE_ENV=production node ."
+  },
+  "devDependencies": {
+    "@types/node": "^15.3.0",
+    "nodemon": "^2.0.7",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}
