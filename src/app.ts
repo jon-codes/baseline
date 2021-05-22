@@ -1,4 +1,3 @@
-import boom from "@hapi/boom";
 import express from "express";
 import pinoHttp from "pino-http";
 
