@@ -1,11 +1,9 @@
-import { config } from "dotenv";
 import { createHttpTerminator } from "http-terminator";
 
 import { app } from "./app";
+import { config } from "./config";
 import { handle } from "./util/error";
 import { logger } from "./util/logger";
-
-config();
 
 process.on("unhandledRejection", (err) => {
   throw err;
@@ -15,12 +13,8 @@ process.on("uncaughtException", (err) => {
   handle(err);
 });
 
-const server = app.listen(process.env.PORT || 3000, () => {
-  logger.info(
-    `started server on :${process.env.PORT || 3000} in ${
-      process.env.NODE_ENV
-    } mode`
-  );
+const server = app.listen(config.port, () => {
+  logger.info(`started server on :${config.port} in ${config.env} mode`);
 });
 
 const httpTerminator = createHttpTerminator({ server });
