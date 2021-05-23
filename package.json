@@ -23,6 +23,7 @@
     "@hapi/boom": "^9.1.2",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
     "http-terminator": "^3.0.0",
     "pino": "^6.11.3",
     "pino-http": "^5.5.0",
