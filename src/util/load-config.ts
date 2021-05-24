@@ -4,7 +4,7 @@ import type { Schema } from "joi";
 import { handle } from "./error";
 
 export const loadConfig = (schema: Schema) => {
-  dotenv.config();
+  dotenv.config({ path: __dirname + "/../../.env" });
 
   const { value, error } = schema.validate(process.env);
   if (error) {
