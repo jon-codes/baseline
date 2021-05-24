@@ -7,9 +7,11 @@
   "scripts": {
     "dev": "NODE_ENV=development nodemon",
     "build": "rimraf dist && tsc",
-    "start": "NODE_ENV=production node ."
+    "start": "NODE_ENV=production node .",
+    "migrate:latest": "knex migrate:latest --cwd . --knexfile src/db/knexfile.ts"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/express": "^4.17.11",
     "@types/node": "^15.3.0",
     "@types/pino": "^6.3.8",
@@ -21,11 +23,14 @@
   },
   "dependencies": {
     "@hapi/boom": "^9.1.2",
+    "bcrypt": "^5.0.1",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "http-terminator": "^3.0.0",
     "joi": "^17.4.0",
+    "knex": "^0.95.6",
+    "pg": "^8.6.0",
     "pino": "^6.11.3",
     "pino-http": "^5.5.0",
     "pino-pretty": "^4.8.0"
