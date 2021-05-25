@@ -14,7 +14,7 @@ export const notFoundMiddleware = (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): void => {
   next(boom.notFound("The requested resource does not exist."));
 };
 
@@ -22,8 +22,8 @@ export const errorMiddleware = (
   err: Error,
   req: Request,
   res: Response,
-  next: NextFunction
-) => {
+  next: NextFunction // eslint-disable-line
+): void => {
   const {
     output: { payload: error, statusCode },
   } = boom.boomify(err);

@@ -1,9 +1,10 @@
 import dotenv from "dotenv";
 import type { Schema } from "joi";
 
+import { Env } from "../config";
 import { handle } from "./error";
 
-export const loadConfig = (schema: Schema) => {
+export const loadConfig = (schema: Schema): Env => {
   dotenv.config({ path: __dirname + "/../../.env" });
 
   const { value, error } = schema.validate(process.env);

@@ -2,6 +2,11 @@ import Joi from "joi";
 
 import { loadConfig } from "./util/load-config";
 
+export interface Env {
+  NODE_ENV: "development" | "test" | "production";
+  PORT: number;
+}
+
 const schema = Joi.object()
   .keys({
     NODE_ENV: Joi.string()
@@ -14,6 +19,6 @@ const schema = Joi.object()
 const env = loadConfig(schema);
 
 export const config = {
-  env: env.NODE_ENV as "development" | "test" | "production",
-  port: env.PORT as number,
+  env: env.NODE_ENV,
+  port: env.PORT,
 };
