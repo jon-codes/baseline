@@ -8,8 +8,7 @@
     "dev": "NODE_ENV=development nodemon",
     "build": "rimraf dist && tsc",
     "start": "NODE_ENV=production node .",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint . --fix",
     "format": "prettier . --write",
     "prepare": "husky install"
   },
