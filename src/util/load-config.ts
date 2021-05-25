@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import type { Schema } from "joi";
 
-import { Env } from "../config";
+import type { Env } from "../config";
 import { handle } from "./error";
 
 export const loadConfig = (schema: Schema): Env => {
