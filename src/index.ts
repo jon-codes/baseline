@@ -5,11 +5,11 @@ import { config } from "./config";
 import { handle } from "./util/error";
 import { logger } from "./util/logger";
 
-process.on("unhandledRejection", (err) => {
+process.on("unhandledRejection", err => {
   throw err;
 });
 
-process.on("uncaughtException", (err) => {
+process.on("uncaughtException", err => {
   handle(err);
 });
 
@@ -21,7 +21,7 @@ const httpTerminator = createHttpTerminator({ server });
 
 const shutdownSignals = ["SIGTERM", "SIGINT"];
 
-shutdownSignals.forEach((signal) =>
+shutdownSignals.forEach(signal =>
   process.on(signal, async () => {
     logger.info(`${signal} received, closing gracefully ...`);
     await httpTerminator.terminate();
